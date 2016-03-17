@@ -105,7 +105,12 @@
 		**/
 		this.removeState = function(state) {
 			var states = _this.getStates();
-			states.pop(state);
+
+			var i = states.indexOf(state);
+			if (i != -1) {
+				states.splice(i, 1);
+			}
+
 			self.attr(settings.statesAttribute, JSON.stringify(states));
 		}
 
